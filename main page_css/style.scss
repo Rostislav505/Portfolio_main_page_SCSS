@@ -1,0 +1,116 @@
+@import 'mixins';
+@import 'variables';
+*
+{
+    @include basicStart();
+}
+
+.navigation-bar
+{
+    background-color: $backgroundColor;
+    padding: 15px;
+    border-radius: 20px;
+    @include makeElementFlex(flex-end, center);
+
+    .navigation-bar__list
+    {
+        @include makeElementFlex(center, center);
+        @include changeFlexDirection(row);
+    }
+        .navigation-bar-list__element
+        {
+            @include changeListBehaviour();
+            margin: 5px 10px;
+            color: white;
+        }
+            a
+            {
+                text-decoration: none;
+                color: white;
+                padding: 20px;
+                margin: 5px;
+                border-radius: 40px 10px;
+
+                &:hover
+                {
+                    color: black;
+                    padding: 20px;
+                    margin: 5px;
+                    background-color: #50C878;
+                    border-radius: 40px 10px;
+                }
+            }
+}
+
+.content
+{
+    @include makeElementFlex(center, center);
+    @include changeFlexDirection(column);
+    height: 100vh;
+
+    .content-wrapper
+    {
+        @include elementSize(800px, 220px);
+        background: black;
+        border-radius: 30px;
+    
+        h1,h2
+        {
+            @include makeElementFlex(center, center);
+            @include changeFlexDirection(column);
+            color: white;
+            font-family: 'Bad Script', sans-serif;
+            letter-spacing: 3px;
+        }
+    }
+}
+
+.content-wrapper h1
+{
+    font-size: 3rem;
+    padding-top: 10px;
+    text-shadow: 1px 5px 4px #4c4c4c;
+
+        &::before
+    {
+            content: "";
+            display: block;
+            width: 120px;
+            height: 2px;
+            position: absolute;
+            background: #fff;
+            left: 290px;
+            top: 50%;
+            z-index: 2;
+        }
+
+        &::after
+        {
+            content: "";
+            display: block;
+            width: 120px;
+            height: 2px;
+            position: absolute;
+            background: #fff;
+            right: 290px;
+            top: 50%;
+            z-index: 2;
+        }
+}
+
+.content-wrapper h2
+{
+    font-size: 1.5rem;
+    padding-left: 15px;
+    text-shadow: 1px 5px 4px #4c4c4c;
+}
+
+footer
+{
+    padding: 20px;
+    background: black;
+    color: white;
+    text-align: center;
+    border-radius: 20px;
+    font-family: 'Helvetica';
+}
